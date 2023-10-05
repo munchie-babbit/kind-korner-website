@@ -1,13 +1,14 @@
 export default function Events() {
   const eventData = {
     title: "Our first pop up experience",
-    description: "",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
     image: "",
     buttonText: "Sign up",
     buttonLink: "",
   };
   return (
-    <div className="max-w-sm border border-customOrange rounded-lg ">
+    <div className="mx-20 border border-customOrange rounded-lg mb-10">
       <a href="#">
         <img
           className="rounded-t-lg"
@@ -17,16 +18,16 @@ export default function Events() {
       </a>
       <div className="p-5">
         <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-customOrange dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-customOrange">
             {eventData.title}
           </h5>
         </a>
-        <p className="mb-3 font-normal text-orange-700 dark:text-orange-400">
+        <p className="mb-3 font-normal text-customOrange ">
           {eventData.description}
         </p>
         <a
           href="#"
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-customOrange rounded-lg hover:bg-customOrange focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-customOrange rounded-lg hover:bg-customGreen  focus:outline-none focus:bg-customGreen "
         >
           {eventData.buttonText}
           <svg

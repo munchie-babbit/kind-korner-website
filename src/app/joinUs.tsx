@@ -2,25 +2,28 @@ export default function JoinUs() {
   const cardData = [
     {
       title: "Join as a vendor",
-      description: "",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut. ",
       actionText: "",
       actionLink: "",
     },
     {
       title: "Join as a shopper",
-      description: "",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut. ",
       actionText: "",
       actionLink: "",
     },
     {
       title: "Support us in other ways",
-      description: "",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut. ",
       actionText: "",
       actionLink: "",
     },
   ];
   return (
-    <div className="flex justify-center space-x-4">
+    <div className="flex justify-center space-x-4 mx-20">
       {cardData.map((card) => (
         <Card
           title={card.title}
@@ -45,18 +48,18 @@ function Card({
   actionLink: string;
 }) {
   return (
-    <div className="max-w-sm p-6 border border-customOrange rounded-lg ">
+    <div className=" p-6 border border-customOrange rounded-lg ">
       <a href="#">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-customOrange dark:text-white">
           {title}
         </h5>
       </a>
-      <p className="mb-3 font-normal text-customOrange-700 dark:text-gray-400">
+      <p className="mb-3 font-normal text-customOrange dark:text-gray-400">
         {description}
       </p>
       <a
         href="#"
-        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-customOrange rounded-lg hover:customOrange focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-customOrange rounded-lg hover:bg-customGreen "
       >
         {actionText}
         <svg

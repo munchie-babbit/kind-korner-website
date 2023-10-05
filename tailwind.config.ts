@@ -10,10 +10,12 @@ const config: Config = {
     extend: {
       textColor: {
         customOrange: "#F89052",
+        customGreen: "#80B565",
       },
       backgroundColor: {
         background: "#F3EDDD",
         customOrange: "#F89052",
+        customGreen: "#80B565",
       },
       borderColor: {
         customOrange: "#F89052",
