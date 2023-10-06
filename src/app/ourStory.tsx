@@ -1,19 +1,13 @@
 import Image from "next/image";
 import boothWide from "./booth-wide.jpg";
+import market from "./market2.png";
 import boothClose from "./booth-close.jpg";
 import etsyMockup from "./etsy-mockup.png";
 export default function OurStory() {
   return (
-    <div className="justify-center mx-20 mb-10">
-      <div className="flex pt-20">
-        <div className=" h-48">
-          <img
-            src="https://placekitten.com/200/200"
-            alt="Image"
-            className="w-full h-full object-cover rounded-full"
-          />
-        </div>
-        <div>
+    <div className="justify-center  mx-20 mb-10 relative">
+      <div className="flex pt-20 justify-center ">
+        <div className="sm:relative md:absolute md:top-40 md:left-10 md:w-2/5 sm:w-full z-2">
           <h1 className="text-4xl font-bold text-customOrange mb-4">
             Hi there!
           </h1>
@@ -24,14 +18,24 @@ export default function OurStory() {
             special.
           </p>
         </div>
+        <Image
+          src={market}
+          className="max-w-full max-h-full"
+          alt="Image of market in the fall"
+          priority
+        />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 jflex items-center">
         <div className="md:order-1">
+          <h2 className=" text-customOrange font-bold">
+            At KindKorner we believe that every small business with a great
+            product and a great story should succeed.
+          </h2>
           <p className="mt-2 text-customOrange">
-            i’m an artist who draws prints online and i set up my online etsy
-            store and after months of hard work and ad campaigns and social
-            media campaigns I made a grand total of 3 sales
+            Our market started when one of our founders selling watercolour
+            travel prints on Etsy strugged to make her 4th sale after months of
+            hardwork with no reward.
           </p>
         </div>
 
@@ -49,27 +53,21 @@ export default function OurStory() {
         <Image
           src={boothClose}
           alt="Image"
-          className="w-full h-auto object-cover rounded-full"
+          className="w-full h-auto object-cover rounded-full mb-10"
         />
       </div>
 
       {/* Left Column - Text */}
-      <div className="md:order-2">
+      <div className="md:order-2 text-center">
         <p className="mt-2 text-customOrange">
-          But then everything changed by attending a pop up local market in
-          Toronto, I made $$$ that day!
+          But by attending a local fair in Toronto, everything changed and she
+          made $500 in one day!
         </p>
       </div>
-      <div className="md:order-1">
+      <div className="md:order-1 mb-10 text-center">
         <p className="mt-2 text-customOrange">
-          And then back to 0 sales online...
-        </p>
-      </div>
-
-      <div className="md:order-2 mb-10">
-        <p className="mt-2 text-customOrange">
-          So I thought, what if I could work together with my techy friends to
-          bring the experience and benefits of a local market online!
+          Unfortunately, this in-person success did not translate back into
+          online sales. Sales continued to slump.
         </p>
       </div>
 
