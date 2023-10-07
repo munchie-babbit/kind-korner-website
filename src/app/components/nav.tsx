@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.png";
+import logo from "../images/logo.png";
 import Image from "next/image";
 
 export default function Nav() {
@@ -10,7 +10,7 @@ export default function Nav() {
     { name: "Events", link: "#" },
   ];
   return (
-    <nav className="bg-background dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-customOrange ">
+    <nav className="bg-background dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-customDarkGreen ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="https://flowbite.com/" className="flex items-center">
           <Image src={logo} className="w-40 mr-3" alt="Kind Korner Logo" />
@@ -18,14 +18,14 @@ export default function Nav() {
         <div className="flex md:order-2">
           <button
             type="button"
-            className="text-white bg-customOrange hover:bg-customGreen focus:ring-4 focus:outline-none focus:background-customOrange font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
+            className="text-white bg-customDarkGreen hover:bg-customGreen focus:ring-4 focus:outline-none focus:background-customDarkGreen font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
           >
             Join Us
           </button>
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-customOrange-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-customDarkGreen-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-sticky"
             aria-expanded="false"
           >
@@ -56,7 +56,7 @@ export default function Nav() {
               <li>
                 <a
                   href={option.link}
-                  className="block py-2 pl-3 pr-4 text-customOrange rounded md:bg-transparent md:text-customOrange-700 md:p-0 "
+                  className="block py-2 pl-3 pr-4 text-customDarkGreen rounded md:bg-transparent md:text-customDarkGreen-700 md:p-0 "
                   aria-current="page"
                 >
                   {option.name}

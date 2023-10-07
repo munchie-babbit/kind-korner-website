@@ -1,15 +1,20 @@
-import Nav from "./nav";
-import OurStory from "./ourStory";
-import JoinUs from "./joinUs";
-import Events from "./events";
-import Footer from "./footer";
+"use client";
+
+import Nav from "./components/nav";
+import OurStory from "./components/ourStory";
+import JoinUs from "./components/joinUs";
+
+import Events from "./components/events";
+import Footer from "./components/footer";
 export default function Home() {
   return (
-    <div className="bg-background">
+    <div className="bg-background ">
       <Nav />
-      <OurStory />
-      <Events />
-      <JoinUs />
+      <div className="justify-center  md:w-3/4 m-auto">
+        <OurStory />
+        <Events />
+        <JoinUs />
+      </div>
       <Footer />
     </div>
   );

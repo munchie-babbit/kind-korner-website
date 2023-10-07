@@ -1,17 +1,16 @@
 import Image from "next/image";
-import boothWide from "./booth-wide.jpg";
-import market from "./market2.png";
-import boothClose from "./booth-close.jpg";
-import etsyMockup from "./etsy-mockup.png";
+import market from "../images/market2.png";
+import boothClose from "../images/booth-close.jpg";
+import etsyMockup from "../images/etsy-mockup.png";
 export default function OurStory() {
   return (
-    <div className="justify-center  mx-20 mb-10 relative">
+    <div className=" mb-10 relative">
       <div className="flex pt-20 justify-center ">
         <div className="sm:relative md:absolute md:top-40 md:left-10 md:w-2/5 sm:w-full z-2">
-          <h1 className="text-4xl font-bold text-customOrange mb-4">
+          <h1 className="text-4xl font-bold text-customDarkGreen mb-4">
             Hi there!
           </h1>
-          <p className="text-lg text-customOrange">
+          <p className="text-lg text-customDarkGreen">
             Welcome to our online local market community, where we bring back
             human-to-human connections in this digital age. We're all about
             telling the stories behind small businesses to show what makes them
@@ -28,14 +27,22 @@ export default function OurStory() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 jflex items-center">
         <div className="md:order-1">
-          <h2 className=" text-customOrange font-bold">
-            At KindKorner we believe that every small business with a great
-            product and a great story should succeed.
+          <h2 className=" text-customDarkGreen text-2xl font-bold">
+            We believe that every small business with a great product and a
+            great story should succeed.
           </h2>
-          <p className="mt-2 text-customOrange">
+          <p className="mt-2 text-customDarkGreen">
             Our market started when one of our founders selling watercolour
             travel prints on Etsy strugged to make her 4th sale after months of
             hardwork with no reward.
+          </p>
+          <p className="mt-2 text-customDarkGreen">
+            But by attending a local fair in Toronto, everything changed and she
+            made $500 in one day!
+          </p>
+          <p className="mt-2 text-customDarkGreen">
+            Unfortunately, this in-person success did not translate back into
+            online sales. Sales continued to slump.
           </p>
         </div>
 
@@ -57,21 +64,7 @@ export default function OurStory() {
         />
       </div>
 
-      {/* Left Column - Text */}
-      <div className="md:order-2 text-center">
-        <p className="mt-2 text-customOrange">
-          But by attending a local fair in Toronto, everything changed and she
-          made $500 in one day!
-        </p>
-      </div>
-      <div className="md:order-1 mb-10 text-center">
-        <p className="mt-2 text-customOrange">
-          Unfortunately, this in-person success did not translate back into
-          online sales. Sales continued to slump.
-        </p>
-      </div>
-
-      <div className="bg-customOrange rounded-full p-20">
+      <div className="bg-customDarkGreen rounded-full p-20">
         <h1 className="text-4xl font-bold text-white mb-4">
           Our mission statement
         </h1>

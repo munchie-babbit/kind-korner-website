@@ -11,14 +11,17 @@ const config: Config = {
       textColor: {
         customOrange: "#F89052",
         customGreen: "#80B565",
+        customDarkGreen: "#3F6A3C",
       },
       backgroundColor: {
         background: "#F3EDDD",
         customOrange: "#F89052",
         customGreen: "#80B565",
+        customDarkGreen: "#3F6A3C",
       },
       borderColor: {
         customOrange: "#F89052",
+        customDarkGreen: "#3F6A3C",
       },
     },
   },

@@ -8,7 +8,7 @@ export default function Events() {
     buttonLink: "",
   };
   return (
-    <div className="mx-20 border border-customOrange rounded-lg mb-10">
+    <div className="mx-20 border border-customDarkGreen rounded-lg mb-10">
       <a href="#">
         <img
           className="rounded-t-lg"
@@ -18,16 +18,16 @@ export default function Events() {
       </a>
       <div className="p-5">
         <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-customOrange">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-customDarkGreen">
             {eventData.title}
           </h5>
         </a>
-        <p className="mb-3 font-normal text-customOrange ">
+        <p className="mb-3 font-normal text-customDarkGreen ">
           {eventData.description}
         </p>
         <a
           href="#"
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-customOrange rounded-lg hover:bg-customGreen  focus:outline-none focus:bg-customGreen "
+          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-customDarkGreen rounded-lg hover:bg-customGreen  focus:outline-none focus:bg-customGreen "
         >
           {eventData.buttonText}
           <svg
