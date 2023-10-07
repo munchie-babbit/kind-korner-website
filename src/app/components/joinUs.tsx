@@ -28,13 +28,14 @@ export default function JoinUs() {
   ];
   return (
     <div className="flex justify-center space-x-4 mx-20">
-      {cardData.map((card) => (
+      {cardData.map((card, key) => (
         <Card
           title={card.title}
           description={card.description}
           actionText={card.actionText}
           actionLink={card.actionLink}
           form={card.form}
+          key={key}
         ></Card>
       ))}
     </div>
@@ -47,15 +48,17 @@ function Card({
   actionText,
   actionLink,
   form,
+  key,
 }: {
   title: string;
   description: string;
   actionText: string;
   actionLink: string;
   form: any;
+  key: number;
 }) {
   return (
-    <div className=" p-6 border border-customDarkGreen rounded-lg ">
+    <div key={key} className=" p-6 border border-customDarkGreen rounded-lg ">
       <a href="#">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-customDarkGreen dark:text-white">
           {title}

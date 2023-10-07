@@ -12,7 +12,7 @@ export default function OurStory() {
           </h1>
           <p className="text-lg text-customDarkGreen">
             Welcome to our online local market community, where we bring back
-            human-to-human connections in this digital age. We're all about
+            human-to-human connections in this digital age. We&apos;re all about
             telling the stories behind small businesses to show what makes them
             special.
           </p>
@@ -72,8 +72,8 @@ export default function OurStory() {
           ​​At KindKorner, we are on a heartfelt mission to bring the charm and
           authenticity of a local flea market into the digital age. Our purpose
           is rooted in the belief that every small business has a unique story
-          to tell, and it's through genuine human connections that these stories
-          come alive.
+          to tell, and it&apos;s through genuine human connections that these
+          stories come alive.
         </p>
       </div>
     </div>
