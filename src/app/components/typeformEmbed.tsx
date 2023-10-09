@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { ActionButton } from "./joinUs";
 
 const TypeformEmbed = () => {
+  const [buttonClick, setButtonClick] = useState(false);
   useEffect(() => {
     // Load the Typeform script when the component mounts
     const script = document.createElement("script");
@@ -15,37 +17,16 @@ const TypeformEmbed = () => {
   }, []);
 
   return (
-    <button
+    <ActionButton
+      text="Apply now"
       data-tf-popup="VxRLwf9l"
       data-tf-opacity="100"
       data-tf-size="100"
       data-tf-iframe-props="title=Vendor Application Form"
       data-tf-transitive-search-params
       data-tf-medium="snippet"
-      style={{
-        all: "unset",
-        fontFamily: "Helvetica, Arial, sans-serif",
-        display: "inline-block",
-        maxWidth: "100%",
-        whiteSpace: "nowrap",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
-        backgroundColor: "#3F6A3C",
-        color: "#fff",
-        fontSize: "20px",
-        borderRadius: "25px",
-        padding: "0 33px",
-        fontWeight: "bold",
-        height: "50px",
-        cursor: "pointer",
-        lineHeight: "50px",
-        textAlign: "center",
-        margin: "0",
-        textDecoration: "none",
-      }}
-    >
-      Apply now
-    </button>
+      onClick={() => setButtonClick(buttonClick ? false : true)}
+    />
   );
 };
 

@@ -5,10 +5,17 @@ import Image from "next/image";
 export default function Nav() {
   const name = "Kind Korner";
   const menuOptions = [
-    { name: "Our Story", link: "#" },
-    { name: "Our Mission", link: "#" },
-    { name: "Events", link: "#" },
+    { name: "Our Story", link: "#our-story" },
+    { name: "Our Mission", link: "#our-mission" },
+    { name: "Events (Coming Soon)", link: "#" },
   ];
+  const scrollToSection = (anchor: string) => {
+    const section = document.getElementById(anchor);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className="bg-background dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-customDarkGreen ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -18,6 +25,7 @@ export default function Nav() {
         <div className="flex md:order-2">
           <button
             type="button"
+            onClick={() => scrollToSection("join-us")}
             className="text-white bg-customDarkGreen hover:bg-customGreen focus:ring-4 focus:outline-none focus:background-customDarkGreen font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
           >
             Join Us

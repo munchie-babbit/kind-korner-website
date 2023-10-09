@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div className="bg-background ">
       <Nav />
-      <div className="justify-center  md:w-3/4 m-auto">
+      <div className="justify-center  xs:px-4 sm:px-12 md:w-3/4 m-auto">
         <OurStory />
-        <Events />
+        {/* <Events /> */}
         <JoinUs />
       </div>
       <Footer />

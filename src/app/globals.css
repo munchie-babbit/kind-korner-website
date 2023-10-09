@@ -16,6 +16,10 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+html,
+body {
+  scroll-behavior: smooth;
+}
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -35,31 +39,4 @@ body {
 /* Change the scrollbar track color */
 ::-webkit-scrollbar-track {
   background-color: #f3eddd;
-}
-
-/* Custom CSS */
-@keyframes squiggle {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(5px) rotate(5deg);
-  }
-  50% {
-    transform: translateX(-5px) rotate(-5deg);
-  }
-  75% {
-    transform: translateX(5px) rotate(5deg);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Tailwind CSS classes */
-.squiggle-line {
-  background-color: #f89052; /* Change this color to your desired underline color */
-  width: 100%;
-  height: 100%;
-  animation: squiggle 1s infinite; /* Adjust animation duration as needed */
 }
