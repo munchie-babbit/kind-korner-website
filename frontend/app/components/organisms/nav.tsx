@@ -1,6 +1,7 @@
 import React from "react";
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 import Image from "next/image";
+import SearchBar from "../atoms/searchBar";
 
 export default function Nav() {
   const name = "Kind Korner";
@@ -26,9 +27,9 @@ export default function Nav() {
           <button
             type="button"
             onClick={() => scrollToSection("join-us")}
-            className="text-white bg-customDarkGreen hover:bg-customGreen focus:ring-4 focus:outline-none focus:background-customDarkGreen font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
+            className="text-white bg-customDarkGreen hover:bg-customGreen focus:background-customDarkGreen font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
           >
-            Join Us
+            Join as a Vendor
           </button>
           <button
             data-collapse-toggle="navbar-sticky"
@@ -59,7 +60,9 @@ export default function Nav() {
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+          <SearchBar />
+
+          {/* <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
             {menuOptions.map((option, key) => (
               <li key={key}>
                 <a
@@ -71,7 +74,7 @@ export default function Nav() {
                 </a>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </div>
     </nav>

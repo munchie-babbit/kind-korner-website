@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ActionButton } from "./joinUs";
+import { ActionButton } from "../atoms/actionButton";
 
 const TypeformEmbed = () => {
   const [buttonClick, setButtonClick] = useState(false);
