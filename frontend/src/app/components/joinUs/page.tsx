@@ -1,5 +1,5 @@
-import TypeformEmbed from "./typeformEmbed";
-import ShopperForm from "./shopperForm";
+import TypeformEmbed from "../organisms/typeformEmbed";
+import ShopperForm from "../organisms/shopperForm";
 export default function JoinUs() {
   const cardData = [
     {

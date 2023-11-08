@@ -3,7 +3,7 @@ import market from "../images/market2.png";
 import boothClose from "../images/booth-close.jpg";
 import etsyMockup from "../images/etsy-mockup.png";
 import welcomeGif from "../images/welcome2.gif";
-export default function OurStory() {
+export default function AboutUs() {
   return (
     <div className="mb-20 relative">
       <div className="flex flex-col items-center justify-center sm:flex-row sm:items-start mb-20">
