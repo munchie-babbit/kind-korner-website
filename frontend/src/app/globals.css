@@ -40,3 +40,15 @@ body {
 ::-webkit-scrollbar-track {
   background-color: #f3eddd;
 }
+
+.search-input::placeholder {
+  color: #1a4841;
+}
+
+.search-input:-ms-input-placeholder {
+  color: #1a4841;
+}
+
+.search-input::-ms-input-placeholder {
+  color: #1a4841;
+}
