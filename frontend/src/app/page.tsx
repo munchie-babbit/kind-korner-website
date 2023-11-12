@@ -1,47 +1,33 @@
-"use client";
-
 import Nav from "./components/organisms/nav";
 import Image from "next/image";
-import torontoImage from "./images/Toronto.png";
-import StoreCard from "./components/molecules/storeCard";
+import Link from "next/link";
+import torontoImage from "./images/Toronto.jpg";
+import WelcomeGif from "./images/welcome2.gif";
+import { ActionButton } from "./components/atoms/actionButton";
 
-const featuredBusinesses = [
-  { name: "Test", image: "https://via.placeholder.com/500x300", url: "" },
-  { name: "Test 2", image: "https://via.placeholder.com/500x300", url: "" },
-  { name: "Test 3", image: "https://via.placeholder.com/500x300", url: "" },
-];
 import Footer from "./components/organisms/footer";
-export default function Home() {
+
+export default async function Home() {
   return (
     <div className="bg-background ">
       <Nav />
-      <div className="pt-24 grid md:grid-cols-2 gap-4 justify-center xs:px-4 sm:px-12 md:w-10/12 m-auto">
+      <div className="pt-24 grid md:grid-cols-2 gap-4 justify-center xs:px-4 sm:px-12 md:w-9/12 m-auto">
         <div className="  p-4">
           <Image className="rounded-2xl" src={torontoImage} alt="Toronto" />
         </div>
         <div className=" p-4">
-          <h1 className="text-customDarkGreen text-2xl">
-            Featured Local Businesses
-          </h1>
-          <div>
-            <StoreCard
-              size="small"
-              name={featuredBusinesses[0].name}
-              image={featuredBusinesses[0].image}
-              url={featuredBusinesses[0].url}
-            />
-            <StoreCard
-              size="small"
-              name={featuredBusinesses[0].name}
-              image={featuredBusinesses[0].image}
-              url={featuredBusinesses[0].url}
-            />
-            <StoreCard
-              size="large"
-              name={featuredBusinesses[0].name}
-              image={featuredBusinesses[0].image}
-              url={featuredBusinesses[0].url}
-            />
+          <Image src={WelcomeGif} alt="Welcome" />
+          <p className="text-customDarkGreen">
+            Toronto offers a rich tapestry of local shops. From the trendy
+            boutiques of Queen Street West to the multicultural markets of
+            Kensington Market, Toronto's neighborhoods embody a fusion of
+            cultures, cuisines, and artistic expressions.
+          </p>
+          <div className="pt-4 gap-2 flex">
+            <Link href="/directory">
+              <ActionButton text="Explore All Shops" />
+            </Link>
+            <ActionButton text="Join as a Vendor" />
           </div>
         </div>
       </div>
