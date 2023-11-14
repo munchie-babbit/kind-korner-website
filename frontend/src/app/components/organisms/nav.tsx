@@ -5,6 +5,7 @@ import SearchBar from "../molecules/searchBar";
 import Link from "next/link";
 import { google } from "googleapis";
 import { ActionButton } from "../atoms/actionButton";
+import TypeformEmbed from "./typeformEmbed";
 
 export default async function Nav() {
   console.log("hello");
@@ -23,23 +24,11 @@ export default async function Nav() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link href="/" className="flex items-center">
           <Image src={logo} className="w-40 mr-3" alt="Kind Korner Logo" />
+          <h1 className="text-customDarkGreen font-bold text-lg">Toronto</h1>
         </Link>
-        <h1 className="text-customDarkGreen font-bold text-lg">Toronto</h1>
+
         <div className="flex md:order-2">
-          {/* <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
-            {menuOptions.map((option, key) => (
-              <li key={key}>
-                <a
-                  href={option.link}
-                  className="block py-2 pl-3 pr-4 text-customDarkGreen rounded md:bg-transparent md:text-customDarkGreen-700 md:p-0 "
-                  aria-current="page"
-                >
-                  {option.name}
-                </a>
-              </li>
-            ))}
-          </ul> */}
-          <ActionButton text="Join as a Vendor" />
+          <TypeformEmbed />
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
@@ -76,7 +65,7 @@ export default async function Nav() {
   );
 }
 
-async function getBusinessCategories() {
+export async function getBusinessCategories() {
   const credentials = "secrets.json";
   //Function for authentication object
   const auth = new google.auth.GoogleAuth({
@@ -99,4 +88,29 @@ async function getBusinessCategories() {
     : [];
 
   return business_categories;
+}
+
+export async function getNeighbourhoods() {
+  const credentials = "secrets.json";
+  //Function for authentication object
+  const auth = new google.auth.GoogleAuth({
+    keyFile: credentials,
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+  });
+
+  //Create client instance for auth
+  const authClient = await auth.getClient();
+
+  //Instance of the Sheets API
+  //@ts-ignore
+  const sheets = google.sheets({ version: "v4", auth: authClient });
+  const getRows = await sheets.spreadsheets.values.get({
+    spreadsheetId: "1uSHVMfRfU0dL8kdaqj4WsxSFdCAo5sTtXbHp1qeSNwA",
+    range: "site_data!B2:B",
+  });
+  const toronto_neighbourhoods: string[] = getRows.data.values
+    ? getRows.data.values.flat()
+    : [];
+
+  return toronto_neighbourhoods;
 }

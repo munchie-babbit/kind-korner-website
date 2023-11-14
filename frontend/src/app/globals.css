@@ -22,13 +22,8 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: #1a4841;
+  background: #f3eddd;
   scrollbar-color: #f89052 #f3eddd;
 }
 

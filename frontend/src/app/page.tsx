@@ -4,6 +4,7 @@ import Link from "next/link";
 import torontoImage from "./images/Toronto.jpg";
 import WelcomeGif from "./images/welcome2.gif";
 import { ActionButton } from "./components/atoms/actionButton";
+import TypeformEmbed from "./components/organisms/typeformEmbed";
 
 import Footer from "./components/organisms/footer";
 
@@ -24,10 +25,8 @@ export default async function Home() {
             cultures, cuisines, and artistic expressions.
           </p>
           <div className="pt-4 gap-2 flex">
-            <Link href="/directory">
-              <ActionButton text="Explore All Shops" />
-            </Link>
-            <ActionButton text="Join as a Vendor" />
+            <ActionButton text="Explore All Shops" href="/directory" />
+            <TypeformEmbed />
           </div>
         </div>
       </div>

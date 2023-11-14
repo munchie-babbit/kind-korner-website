@@ -72,7 +72,7 @@ function Card({
         </h5>
       </a>
       <p className="mb-3 font-normal text-customDarkGreen ">{description}</p>
-      {!form ? <ActionButton link={actionLink} text={actionText} /> : form}
+      {!form ? <ActionButton href={actionLink} text={actionText} /> : form}
     </div>
   );
 }
