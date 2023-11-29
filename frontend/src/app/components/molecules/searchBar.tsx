@@ -49,7 +49,7 @@ export default function SearchBar({
           onClick={() => {
             setIsDropdownOpen(!isDropdownOpen);
           }}
-          className="flex-shrink-0 z-10 inline-flex items-center min-w-[160px] py-2.5 px-4 text-sm font-medium text-center text-customDarkGreen bg-background border border-customDarkGreen rounded-l-lg hover:bg-customDarkGreen hover:text-white"
+          className="flex-shrink-0 z-10 inline-flex items-center min-w-[160px] py-2.5 px-4 text-sm font-medium text-center text-customDarkGreen bg-background border-[1.5px] border-customDarkGreen rounded-l-lg hover:bg-customDarkGreen hover:text-white"
           type="button"
         >
           {selectedCategory}
@@ -101,7 +101,7 @@ export default function SearchBar({
           <input
             type="search"
             id="search-dropdown"
-            className="search-input block p-2.5 w-full z-20 text-shm text-customDarkGreen bg-background rounded-r-lg  border-l-0 border border-customDarkGreen "
+            className="search-input block p-2.5 w-full z-20 text-shm text-customDarkGreen bg-background rounded-r-lg  border-l-0 border-[1.5px] border-customDarkGreen "
             placeholder="Search local businesses"
             autoComplete="off"
             value={searchValue}
@@ -113,12 +113,19 @@ export default function SearchBar({
               (selectedCategory !== "All categories"
                 ? `?category=${selectedCategory}`
                 : "") +
-              (searchValue ? `?search=${searchValue}` : "")
+              (searchValue
+                ? `${
+                    selectedCategory !== "All categories" ? "&" : "?"
+                  }search=${searchValue}`
+                : "")
             }
           >
             <button
               type="submit"
-              className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-customDarkGreen rounded-r-lg border border-customDarkGreen"
+              className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-customDarkGreen rounded-r-lg border-[1.5px] border-customDarkGreen"
+              onClick={() => {
+                setSearchValue("");
+              }}
             >
               <svg
                 className="w-4 h-4"

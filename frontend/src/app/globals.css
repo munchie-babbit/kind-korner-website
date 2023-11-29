@@ -27,6 +27,10 @@ body {
   scrollbar-color: #f89052 #f3eddd;
 }
 
+a {
+  text-decoration: underline;
+}
+
 ::-webkit-scrollbar-thumb {
   background-color: #f89052;
 }

@@ -71,10 +71,10 @@ export default function AboutUs() {
         id="our-mission"
         className="bg-customDarkGreen rounded-full p-20 mx-8 md:mx-0"
       >
-        <h1 className="text-4xl font-bold text-white mb-4">
+        <h1 className="text-4xl font-bold text-customWhite mb-4">
           Our mission statement
         </h1>
-        <p className="text-lg text-white">
+        <p className="text-lg text-customWhite">
           ​​At KindKorner, we are on a heartfelt mission to bring the charm and
           authenticity of a local flea market into the digital age. Our purpose
           is rooted in the belief that every small business has a unique story

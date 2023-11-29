@@ -5,17 +5,25 @@ export function ActionButton({
   href = "",
   text,
   type = undefined,
+  backgroundColour = "customDarkGreen",
+  borderColour = "customDarkGreen",
+  hoverColour = "customBlue",
+  textColour = "customWhite",
   ...props
 }: {
   href?: string;
   type?: "button" | "submit" | "reset" | undefined;
   text: string;
+  backgroundColour?: string;
+  borderColour?: string;
+  hoverColour?: string;
+  textColour?: string;
 }) {
   return (
     <Link href={href}>
       <button
         type={type}
-        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-customDarkGreen rounded-lg border-2 hover:text-customDarkGreen  border-customDarkGreen hover:bg-customBlue "
+        className={`inline-flex items-center px-3 py-2 text-sm font-medium text-center text-${textColour} rounded-lg border-[1.5px] hover:text-customDarkGreen hover:border-customDarkGreen bg-${backgroundColour} border-${borderColour} hover:bg-${hoverColour}`}
         {...props}
       >
         {text}

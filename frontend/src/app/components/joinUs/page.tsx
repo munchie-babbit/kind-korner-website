@@ -67,7 +67,7 @@ function Card({
       className=" p-8 my-4 border border-customDarkGreen rounded-lg "
     >
       <a href="#">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-customDarkGreen dark:text-white">
+        <h5 className="mb-2 text-2xl font-bold tracking-tight text-customDarkGreen">
           {title}
         </h5>
       </a>

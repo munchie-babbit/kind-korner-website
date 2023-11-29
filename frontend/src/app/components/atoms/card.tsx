@@ -5,12 +5,13 @@ export default function Card({
   children?: any;
   hasPadding?: boolean;
 }) {
-  return hasPadding ? (
-    <div className=" my-4 p-4 border border-customDarkGreen rounded-lg overflow-hidden">
-      {children}
-    </div>
-  ) : (
-    <div className=" my-4 border border-customDarkGreen rounded-lg overflow-hidden">
+  return (
+    <div
+      className={
+        "border border-customDarkGreen bg-background rounded-lg overflow-hidden " +
+        (hasPadding ? "p-8" : "")
+      }
+    >
       {children}
     </div>
   );

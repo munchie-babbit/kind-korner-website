@@ -10,7 +10,7 @@ export default async function BusinessPage() {
   return (
     <div className="bg-background ">
       <Nav />
-      <div className="pt-16">
+      <div className="py-16 ">
         <BusinessBody allBusinesses={allBusinesses} />
       </div>
       <Footer />

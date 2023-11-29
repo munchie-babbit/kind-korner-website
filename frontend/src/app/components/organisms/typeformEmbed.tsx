@@ -25,6 +25,9 @@ const TypeformEmbed = () => {
       data-tf-iframe-props="title=Vendor Application Form"
       data-tf-transitive-search-params
       data-tf-medium="snippet"
+      backgroundColour="customPink"
+      borderColour="customDarkGreen"
+      textColour="customDarkGreen"
     />
   );
 };

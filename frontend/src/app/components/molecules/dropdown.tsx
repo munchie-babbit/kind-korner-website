@@ -1,17 +1,19 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Store } from "../../../../types";
 
 export default function Dropdown({
   name,
   options,
+  setSelectedValue,
+  selectedValue,
 }: {
   name: string;
   options: string[];
+  setSelectedValue: any;
+  selectedValue: string;
 }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(name);
   const handleClickOutside = (event: MouseEvent) => {
     if (
       dropdownRef.current &&
@@ -31,14 +33,14 @@ export default function Dropdown({
   }, []);
 
   return (
-    <>
+    <div className="relative">
       <button
         id={`dropdown-button-${name}`}
         ref={dropdownRef}
         onClick={() => {
           setIsDropdownOpen(!isDropdownOpen);
         }}
-        className="text-white bg-customDarkGreen hover:bg-customBlue hover:text-customDarkGreen border border-customDarkGreen font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center "
+        className="min-w-[200px] text-customWhite bg-customDarkGreen hover:bg-customBlue hover:text-customDarkGreen border border-customDarkGreen font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center "
         type="button"
       >
         {selectedValue}
@@ -62,7 +64,7 @@ export default function Dropdown({
       <div
         id="dropdown"
         className={
-          "z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute " +
+          "z-10 bg-background divide-y divide-gray-100 rounded-lg shadow w-44 absolute top-full " +
           (isDropdownOpen ? "" : "hidden")
         }
       >
@@ -74,7 +76,7 @@ export default function Dropdown({
             <li key={option}>
               <button
                 type="button"
-                className="inline-flex w-full px-4 py-2 hover:bg-customDarkGreen hover:text-white"
+                className="inline-flex w-full px-4 py-2 hover:bg-customDarkGreen hover:text-customWhite"
                 onClick={() => {
                   setSelectedValue(option);
                 }}
@@ -85,6 +87,6 @@ export default function Dropdown({
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 }

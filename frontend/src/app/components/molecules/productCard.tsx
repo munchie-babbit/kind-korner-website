@@ -11,10 +11,16 @@ export default function ProductCard({
   price: string;
 }) {
   return (
-    <Card>
-      <Image src={image} alt="Product image" width={200} height={300} />
-      <p>{title}</p>
-      <p>{price}</p>
+    <Card hasPadding={false}>
+      <Image
+        className="object-cover w-full"
+        src={image}
+        alt="Product image"
+        width={200}
+        height={300}
+      />
+      <p className="font-medium pt-4">{title}</p>
+      <p className="pb-4">{price}</p>
     </Card>
   );
 }

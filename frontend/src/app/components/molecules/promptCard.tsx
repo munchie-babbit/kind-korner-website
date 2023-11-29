@@ -10,7 +10,7 @@ export default function PromptCard({
   return (
     <Card>
       <p className="font-bold">{question}</p>
-      <p>{answer}</p>
+      <p className="pt-2">{answer}</p>
     </Card>
   );
 }

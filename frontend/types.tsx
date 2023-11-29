@@ -2,12 +2,15 @@ export type Store = {
   store_id: string;
   store_name: string;
   store_category: string;
+  store_start_year: string;
+  store_message: string;
   owner_name: string;
   short_summary: string;
   extended_summary: string;
   location: string;
   website: string;
   phone_number: string;
+  email: string;
   facebook: string;
   instagram: string;
   twitter: string;
@@ -32,4 +35,11 @@ export type Store = {
   product_3_img: string;
   product_3_title: string;
   product_3_price: string;
+};
+
+export type IllustrationDataType = {
+  img_url: string;
+  timeframe: string;
+  artist_name: string;
+  artist_url: string;
 };

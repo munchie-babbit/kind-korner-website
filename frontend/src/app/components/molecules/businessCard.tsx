@@ -22,44 +22,65 @@ export default function BusinessCard({
   extended_summary?: string;
 }) {
   return (
-    <Card hasPadding={false}>
-      <div className="grid grid-cols cols-2 gap-2 text-customDarkGreen">
-        <div className="col-start-1 col-end-2">
-          <div className="w-full h-full">
-            <Image
-              className="w-full h-full object-cover"
-              src={image}
-              alt="Business image"
-              width={600}
-              height={600}
-            />
+    <div className="mt-4">
+      <Card hasPadding={false}>
+        <div className="grid grid-cols cols-2 gap-2 text-customDarkGreen ">
+          <div className="md:col-start-1 md:col-end-2">
+            <div className="w-full h-full">
+              {image ? (
+                <Image
+                  className="w-full h-full object-cover max-h-[500px]"
+                  src={image}
+                  alt="Business image"
+                  width={600}
+                  height={600}
+                />
+              ) : (
+                <div className="w-full h-full bg-customDarkGreen max-h-[500px]"></div>
+              )}
+            </div>
+          </div>
+          <div className="md:col-start-2 md:col-end-3 p-8">
+            <div className="flex flex-row justify-between items-center">
+              <p className=" font-bold">{name}</p>
+              <ActionButton text="View Business" href={`/business/${id}`} />
+            </div>
+            <div className="border-t border-customDarkGreen my-2"></div>
+            {owner ? (
+              <>
+                {" "}
+                <p>
+                  <span className="font-medium">By: </span>
+                  {owner}
+                </p>
+                <div className="border-t border-customDarkGreen my-2"></div>
+              </>
+            ) : null}
+
+            {location && category ? (
+              <>
+                <div className="flex flex-row">
+                  <p>
+                    <span className="font-medium">Neighbourhood:</span>{" "}
+                    {location}
+                  </p>
+                  <p className="pl-4">
+                    <span className="font-medium">Category:</span> {category}
+                  </p>
+                </div>
+                <div className="border-t border-customDarkGreen my-2"></div>
+              </>
+            ) : null}
+            {short_summary ? (
+              <>
+                <p className="font-medium">{short_summary}</p>
+                <div className=" border-t border-customDarkGreen my-2"></div>
+              </>
+            ) : null}
+            {extended_summary ? <p>{extended_summary}</p> : null}
           </div>
         </div>
-        <div className="col-start-2 col-end-3 p-8">
-          <div className="flex flex-row justify-between items-center">
-            <p className=" font-bold">{name}</p>
-            <ActionButton text="View Business" href={`/business/${id}`} />
-          </div>
-          <div className="border-t border-customDarkGreen my-2"></div>
-          <p>
-            <span className="font-medium">By: </span>
-            {owner}
-          </p>
-          <div className="border-t border-customDarkGreen my-2"></div>
-          <div className="flex flex-row">
-            <p>
-              <span className="font-medium">Neighbourhood:</span> {location}
-            </p>
-            <p className="pl-4">
-              <span className="font-medium">Category:</span> {category}
-            </p>
-          </div>
-          <div className="border-t border-customDarkGreen my-2"></div>
-          <p className="font-medium">{short_summary}</p>
-          <div className=" border-t border-customDarkGreen my-2"></div>
-          <p>{extended_summary}</p>
-        </div>
-      </div>
-    </Card>
+      </Card>
+    </div>
   );
 }
