@@ -1,6 +1,5 @@
 import React from "react";
-import { ActionButton } from "./joinUs";
-
+import { ActionButton } from "../atoms/actionButton";
 const ShopperForm = () => {
   return (
     <div className="container mx-auto">
