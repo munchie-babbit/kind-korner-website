@@ -1,11 +1,15 @@
 import Nav from "@/app/components/organisms/nav";
-import { google } from "googleapis";
 import Footer from "@/app/components/organisms/footer";
 import { Store } from "../../../../types";
 import BusinessBody from "@/app/components/organisms/businessBody";
 import { getAllBusinesses } from "@/app/directory/page";
 
-export default async function BusinessPage() {
+export default async function BusinessPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const { id } = params;
   const allBusinesses: Store[] = await getAllBusinesses();
   return (
     <div className="bg-background ">
@@ -16,4 +20,13 @@ export default async function BusinessPage() {
       <Footer />
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  const businesses = await getAllBusinesses();
+  const ids = businesses.map((business) => {
+    id: business.store_id;
+  });
+
+  return ids;
 }
