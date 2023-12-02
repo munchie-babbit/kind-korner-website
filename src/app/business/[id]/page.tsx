@@ -24,9 +24,8 @@ export default async function BusinessPage({
 
 export async function generateStaticParams() {
   const businesses = await getAllBusinesses();
-  const ids = businesses.map((business) => {
-    id: business.store_id;
-  });
-
+  const ids = businesses.map((business) => ({
+    id: business.store_id,
+  }));
   return ids;
 }
