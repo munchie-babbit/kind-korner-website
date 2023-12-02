@@ -31,9 +31,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
       - name: Load Google APIs Credentials
         run: echo "${{ secrets.GOOGLEAPIS_CREDENTIALS }}" > secrets.json
+      - name: Current directory
+        run: pwd
+      - name: List directory contents
+        run: ls -la
 
   # Build job
   build:
@@ -84,6 +87,10 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Current directory
+        run: pwd
+      - name: List directory contents
+        run: ls -la
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Static HTML export with Next.js
