@@ -4,13 +4,8 @@ import { Store } from "../../../../types";
 import BusinessBody from "@/app/components/organisms/businessBody";
 import { getAllBusinesses } from "@/app/directory/page";
 
-export default async function BusinessPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const { id } = params;
-  const allBusinesses: Store[] = await getAllBusinesses();
+export default async function BusinessPage() {
+  const allBusinesses = await getAllBusinesses();
   return (
     <div className="bg-background ">
       <Nav />
@@ -22,11 +17,10 @@ export default async function BusinessPage({
   );
 }
 
-export async function getStaticPaths() {
+export async function generateStaticParams() {
   const businesses = await getAllBusinesses();
-  const paths = businesses.map((business) => ({
-    params: { id: business.store_id.toString() },
-  }));
 
-  return { paths, fallback: false };
+  return businesses.map((business) => ({
+    id: business.store_id.toString(),
+  }));
 }

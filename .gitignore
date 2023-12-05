@@ -43,5 +43,8 @@ secrets.json
 # Local env files
 .env.local
 
+# Next.js build output
+out
+
 #Other
 .DS_Store
