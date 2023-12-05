@@ -21,3 +21,12 @@ export default async function BusinessPage({
     </div>
   );
 }
+
+export async function getStaticPaths() {
+  const businesses = await getAllBusinesses();
+  const paths = businesses.map((business) => ({
+    params: { id: business.store_id.toString() },
+  }));
+
+  return { paths, fallback: false };
+}
