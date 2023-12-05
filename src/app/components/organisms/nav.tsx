@@ -3,7 +3,6 @@ import logo from "../../images/logo.png";
 import Image from "next/image";
 import SearchBar from "../molecules/searchBar";
 import Link from "next/link";
-import { google } from "googleapis";
 import TypeformEmbed from "./typeformEmbed";
 
 export default async function Nav() {
@@ -33,6 +32,7 @@ export default async function Nav() {
 
 export async function getBusinessCategories() {
   const credentials = "secrets.json";
+  const { google } = require("googleapis");
   //Function for authentication object
   const auth = new google.auth.GoogleAuth({
     keyFile: credentials,
@@ -58,6 +58,7 @@ export async function getBusinessCategories() {
 
 export async function getNeighbourhoods() {
   const credentials = "secrets.json";
+  const { google } = require("googleapis");
   //Function for authentication object
   const auth = new google.auth.GoogleAuth({
     keyFile: credentials,

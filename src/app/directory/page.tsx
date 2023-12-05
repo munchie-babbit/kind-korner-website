@@ -1,7 +1,6 @@
 import Footer from "../components/organisms/footer";
 
 import Nav from "../components/organisms/nav";
-import { google } from "googleapis";
 import { Store } from "../../../types";
 import { getBusinessCategories } from "../components/organisms/nav";
 import { getNeighbourhoods } from "../components/organisms/nav";
@@ -29,6 +28,7 @@ export default async function Directory() {
 
 export async function getAllBusinesses() {
   const credentials = "secrets.json";
+  const { google } = require("googleapis");
   //Function for authentication object
   const auth = new google.auth.GoogleAuth({
     keyFile: credentials,
@@ -54,7 +54,7 @@ export async function getAllBusinesses() {
     const values = data.slice(1);
     const startNumber = 1;
 
-    const businesses = values.map((array) => {
+    const businesses = values.map((array: string[]) => {
       const newBusiness: Store = {
         store_id: array[startNumber],
         store_name: array[startNumber + 1],

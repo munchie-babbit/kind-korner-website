@@ -3,7 +3,6 @@ import { ActionButton } from "../atoms/actionButton";
 import Image from "next/image";
 import WelcomeGif from "../../images/welcome2.gif";
 import Tag from "../atoms/tag";
-import { google } from "googleapis";
 import { IllustrationDataType } from "../../../../types";
 export default async function HomepageBody() {
   const illustration_data = await getHomepageIllustration();
@@ -59,6 +58,7 @@ export default async function HomepageBody() {
 
 export async function getHomepageIllustration() {
   const credentials = "secrets.json";
+  const { google } = require("googleapis");
   //Function for authentication object
   const auth = new google.auth.GoogleAuth({
     keyFile: credentials,
