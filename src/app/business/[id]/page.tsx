@@ -2,6 +2,7 @@ import Nav from "@/app/components/organisms/nav";
 import Footer from "@/app/components/organisms/footer";
 import BusinessBody from "@/app/components/organisms/businessBody";
 import { getAllBusinesses } from "@/app/directory/page";
+import { Store } from "../../../../types";
 
 export default async function BusinessPage() {
   const allBusinesses = await getAllBusinesses();
@@ -19,7 +20,7 @@ export default async function BusinessPage() {
 export async function generateStaticParams() {
   const businesses = await getAllBusinesses();
 
-  return businesses.map((business) => ({
+  return businesses.map((business: Store) => ({
     id: business.store_id.toString(),
   }));
 }
