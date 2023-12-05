@@ -31,7 +31,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - Load Secrets
+      - name: Load Secrets
         env:
           TYPE: ${{ secrets.TYPE }}
           PROJECT_ID: ${{ secrets.PROJECT_ID }}
