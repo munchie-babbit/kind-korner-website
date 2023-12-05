@@ -1,6 +1,5 @@
 import Nav from "@/app/components/organisms/nav";
 import Footer from "@/app/components/organisms/footer";
-import { Store } from "../../../../types";
 import BusinessBody from "@/app/components/organisms/businessBody";
 import { getAllBusinesses } from "@/app/directory/page";
 
