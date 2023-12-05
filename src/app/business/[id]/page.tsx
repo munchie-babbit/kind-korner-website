@@ -21,11 +21,3 @@ export default async function BusinessPage({
     </div>
   );
 }
-
-export async function generateStaticParams() {
-  const businesses = await getAllBusinesses();
-  const ids = businesses.map((business) => ({
-    id: business.store_id,
-  }));
-  return ids;
-}

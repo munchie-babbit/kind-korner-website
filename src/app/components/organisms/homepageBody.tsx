@@ -8,15 +8,23 @@ import { IllustrationDataType } from "../../../../types";
 export default async function HomepageBody() {
   const illustration_data = await getHomepageIllustration();
   return (
-    <div className="pt-20 grid md:grid-cols-2 gap-4 justify-center m-auto">
-      <div className="p-4 w-full h-[70vh] md:h-[90vh] relative">
-        <Image
-          layout="fill"
-          objectFit="cover"
+    <div className=" grid md:grid-cols-2 gap-4 justify-center m-auto">
+      <div className="w-full h-[70vh] md:h-[100vh] relative">
+        <video
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "scale-down",
+            backgroundColor: "#1A4841",
+          }}
           src={illustration_data?.img_url}
-          alt="Toronto"
-        />
-        <div className="absolute bottom-4 left-4">
+          autoPlay
+          loop
+          muted
+        >
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute bottom-4 left-28">
           <Tag>
             {illustration_data.timeframe + " illustration by "}
             <a href={illustration_data.artist_url}>
@@ -25,7 +33,7 @@ export default async function HomepageBody() {
           </Tag>
         </div>
       </div>
-      <div className="px-24 py-16">
+      <div className="px-24 py-16 mt-20">
         <Image src={WelcomeGif} alt="Welcome" />
         <div className="px-4">
           <p className="text-customDarkGreen">
@@ -35,7 +43,12 @@ export default async function HomepageBody() {
             cultures, cuisines, and artistic expressions.
           </p>
           <div className="pt-4 gap-2 flex">
-            <ActionButton text="Explore All Shops" href="/directory" />
+            <ActionButton
+              backgroundColour="customBlue"
+              textColour="customDarkGreen"
+              text="Explore All Shops"
+              href="/directory"
+            />
             <TypeformEmbed />
           </div>
         </div>

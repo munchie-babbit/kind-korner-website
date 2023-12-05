@@ -7,7 +7,6 @@ export default async function Home() {
     <div className="bg-background ">
       <Nav />
       <HomepageBody />
-      <Footer />
     </div>
   );
 }
