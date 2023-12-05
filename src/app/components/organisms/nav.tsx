@@ -31,11 +31,23 @@ export default async function Nav() {
 }
 
 export async function getBusinessCategories() {
-  const credentials = "secrets.json";
+  const credentials = {
+    type: process.env.TYPE,
+    project_id: process.env.PROJECT_ID,
+    private_key_id: process.env.PRIVATE_KEY_ID,
+    private_key: process.env.PRIVATE_KEY,
+    client_email: process.env.CLIENT_EMAIL,
+    client_id: process.env.CLIENT_ID,
+    auth_uri: process.env.AUTH_URI,
+    token_uri: process.env.TOKEN_URI,
+    auth_provider_x509_cert_url: process.env.AUTH_PROVIDER_X509_CERT_URL,
+    client_x509_cert_url: process.env.CLIENT_X509_CERT_URL,
+    universe_domain: process.env.GOOGLE_UNIVERSE_DOMAIN,
+  };
   const { google } = require("googleapis");
   //Function for authentication object
   const auth = new google.auth.GoogleAuth({
-    keyFile: credentials,
+    credentials: credentials,
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
 
@@ -57,11 +69,23 @@ export async function getBusinessCategories() {
 }
 
 export async function getNeighbourhoods() {
-  const credentials = "secrets.json";
+  const credentials = {
+    type: process.env.TYPE,
+    project_id: process.env.PROJECT_ID,
+    private_key_id: process.env.PRIVATE_KEY_ID,
+    private_key: process.env.PRIVATE_KEY,
+    client_email: process.env.CLIENT_EMAIL,
+    client_id: process.env.CLIENT_ID,
+    auth_uri: process.env.AUTH_URI,
+    token_uri: process.env.TOKEN_URI,
+    auth_provider_x509_cert_url: process.env.AUTH_PROVIDER_X509_CERT_URL,
+    client_x509_cert_url: process.env.CLIENT_X509_CERT_URL,
+    universe_domain: process.env.GOOGLE_UNIVERSE_DOMAIN,
+  };
   const { google } = require("googleapis");
   //Function for authentication object
   const auth = new google.auth.GoogleAuth({
-    keyFile: credentials,
+    credentials: credentials,
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
 
