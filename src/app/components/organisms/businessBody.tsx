@@ -51,7 +51,10 @@ export default function BusinessBody({
               <div className="flex flex-row gap-2">
                 <p>
                   Located in {business.location} in the area of{" "}
-                  {business.store_category}. Started in 2021.
+                  {business.store_category}.{" "}
+                  {business.store_start_year
+                    ? "Started in " + business.store_start_year + "."
+                    : null}
                 </p>
               </div>
 
@@ -139,10 +142,10 @@ export default function BusinessBody({
           {business.img_1 ? (
             <Image
               src={business.img_1}
-              alt="Business image"
+              alt=""
               width={500}
               height={200}
-              className="mt-4 w-full object-cover h-96 border-[1.5px] border-customDarkGreen rounded-2xl"
+              className="bg-customBlue mt-4 w-full object-cover h-96 border-[1.5px] border-customDarkGreen rounded-2xl"
             />
           ) : null}
 
@@ -173,7 +176,7 @@ export default function BusinessBody({
                 alt="Business image"
                 width={200}
                 height={200}
-                className="object-cover w-full h-96 border-[1.5px] border-customDarkGreen rounded-2xl"
+                className="bg-customBlue object-cover w-full h-96 border-[1.5px] border-customDarkGreen rounded-2xl"
               />
             ) : null}
             {business.img_3 ? (
@@ -182,44 +185,10 @@ export default function BusinessBody({
                 alt="Business image"
                 width={200}
                 height={200}
-                className="object-cover w-full h-96 border-[1.5px] border-customDarkGreen rounded-2xl"
+                className="bg-customBlue object-cover w-full h-96 border-[1.5px] border-customDarkGreen rounded-2xl"
               />
             ) : null}
           </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-12 gap-4 pt-20">
-        <div className="col-start-2 col-span-10 text-center">
-          {hasProducts ? (
-            <div>
-              <h1 className="text-lg font-bold">Featured Products</h1>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:my-4 my-4">
-                {business?.product_1_img ? (
-                  <ProductCard
-                    image={business.product_1_img}
-                    title={business.product_1_title}
-                    price={business.product_1_price}
-                  />
-                ) : null}
-                {business?.product_2_img ? (
-                  <ProductCard
-                    image={business.product_2_img}
-                    title={business.product_2_title}
-                    price={business.product_2_price}
-                  />
-                ) : null}
-                {business?.product_3_img ? (
-                  <ProductCard
-                    image={business.product_3_img}
-                    title={business.product_3_title}
-                    price={business.product_3_price}
-                  />
-                ) : null}
-              </div>
-              <ActionButton text="Visit Website" href={business.website} />
-            </div>
-          ) : null}
         </div>
       </div>
     </div>
