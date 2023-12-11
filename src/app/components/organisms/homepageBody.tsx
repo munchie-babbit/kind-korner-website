@@ -4,54 +4,87 @@ import Image from "next/image";
 import WelcomeGif from "../../images/welcome2.gif";
 import Tag from "../atoms/tag";
 import { IllustrationDataType } from "../../../../types";
+import FeaturedBusinessImage from "../../images/MacBook Pro 14_ - 2.png";
+import BusinessCard from "../molecules/businessCard";
+import { getAllBusinesses } from "@/app/directory/page";
+import { Store } from "../../../../types";
 export default async function HomepageBody() {
   const illustration_data = await getHomepageIllustration();
+  const allBusinesses = await getAllBusinesses();
+  const featuredBusiness: Store = allBusinesses.find(
+    (business: Store) => business.store_id === "crimson-teas"
+  );
   return (
-    <div className=" grid md:grid-cols-2 gap-4 justify-center m-auto">
-      <div className="w-full h-[70vh] md:h-[100vh] relative">
-        <video
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "scale-down",
-            backgroundColor: "#1A4841",
-          }}
-          src={illustration_data?.img_url}
-          autoPlay
-          loop
-          muted
-        >
-          Your browser does not support the video tag.
-        </video>
-        <div className="absolute bottom-4 left-28">
-          <Tag>
-            {illustration_data.timeframe + " illustration by "}
-            <a href={illustration_data.artist_url}>
-              {illustration_data.artist_name}
-            </a>
-          </Tag>
+    <div>
+      <div className=" grid md:grid-cols-2 gap-4 justify-center m-auto">
+        <div className="w-full h-[70vh] md:h-[100vh] relative">
+          <video
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+            src={illustration_data?.img_url}
+            autoPlay
+            loop
+            muted
+          >
+            Your browser does not support the video tag.
+          </video>
+          <div className="absolute bottom-4 left-28">
+            <Tag>
+              {illustration_data?.timeframe + " illustration by "}
+              <a href={illustration_data?.artist_url}>
+                {illustration_data?.artist_name}
+              </a>
+            </Tag>
+          </div>
         </div>
-      </div>
-      <div className="px-24 py-16 mt-20">
-        <Image src={WelcomeGif} alt="Welcome" />
-        <div className="px-4">
-          <p className="text-customDarkGreen">
-            Toronto offers a rich tapestry of local shops. From the trendy
-            boutiques of Queen Street West to the multicultural markets of
-            Kensington Market, Toronto's neighborhoods embody a fusion of
-            cultures, cuisines, and artistic expressions.
-          </p>
-          <div className="pt-4 gap-2 flex">
-            <ActionButton
-              backgroundColour="customBlue"
-              textColour="customDarkGreen"
-              text="Explore All Shops"
-              href="/directory"
-            />
-            <TypeformEmbed />
+        <div className="px-24 py-16 mt-20">
+          <Image src={WelcomeGif} alt="Welcome" />
+          <div className="px-4">
+            <p className="text-customDarkGreen">
+              Toronto offers a rich tapestry of local shops. From the trendy
+              boutiques of Queen Street West to the multicultural markets of
+              Kensington Market, Toronto's neighborhoods embody a fusion of
+              cultures, cuisines, and artistic expressions.
+            </p>
+            <div className="pt-4 gap-2 flex">
+              <ActionButton
+                backgroundColour="customBlue"
+                textColour="customDarkGreen"
+                text="Explore All Shops"
+                href="/directory"
+              />
+              <TypeformEmbed />
+            </div>
           </div>
         </div>
       </div>
+
+      {/* <div className="grid grid-cols-12 bg-customDarkGreen pt-20">
+        <div className="col-start-2 col-end-12">
+          <div className="bg-background ">
+            <Image
+              src={FeaturedBusinessImage}
+              alt="Featured Business"
+              objectFit="contain"
+            />
+            <div className="p-8">
+              <BusinessCard
+                image={featuredBusiness.img_main}
+                name={featuredBusiness.store_name}
+                id={featuredBusiness.store_id}
+                owner={featuredBusiness.owner_name}
+                location={featuredBusiness.location}
+                category={featuredBusiness.store_category}
+                short_summary={featuredBusiness.short_summary}
+                extended_summary={featuredBusiness.extended_summary}
+              ></BusinessCard>
+            </div>
+          </div>
+        </div>
+      </div> */}
     </div>
   );
 }
@@ -83,18 +116,22 @@ export async function getHomepageIllustration() {
   // Instance of the Sheets API
   // @ts-ignore
   const sheets = google.sheets({ version: "v4", auth: authClient });
-  const getRows = await sheets.spreadsheets.values.get({
-    spreadsheetId: "1uSHVMfRfU0dL8kdaqj4WsxSFdCAo5sTtXbHp1qeSNwA",
-    range: "site_data!D2:D",
-  });
-  const illustration_data: IllustrationDataType = getRows.data.values
-    ? {
-        img_url: getRows.data.values[0][0],
-        timeframe: getRows.data.values[1][0],
-        artist_name: getRows.data.values[2][0],
-        artist_url: getRows.data.values[3][0],
-      }
-    : { img_url: null, timeframe: null, artist_name: null, artist_url: null };
+  try {
+    const getRows = await sheets.spreadsheets.values.get({
+      spreadsheetId: "1uSHVMfRfU0dL8kdaqj4WsxSFdCAo5sTtXbHp1qeSNwA",
+      range: "site_data!D2:D",
+    });
+    const illustration_data: IllustrationDataType = getRows.data.values
+      ? {
+          img_url: getRows.data.values[0][0],
+          timeframe: getRows.data.values[1][0],
+          artist_name: getRows.data.values[2][0],
+          artist_url: getRows.data.values[3][0],
+        }
+      : { img_url: null, timeframe: null, artist_name: null, artist_url: null };
 
-  return illustration_data;
+    return illustration_data;
+  } catch {
+    return null;
+  }
 }

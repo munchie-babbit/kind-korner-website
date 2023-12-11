@@ -17,10 +17,10 @@ const config: Config = {
         customDarkGreen: "#1A4841",
         customPink: "#E88D71",
         customBlue: "#CADAD7",
-        customWhite: "#F3EDDD",
+        customWhite: "#FFF9F4",
       },
       backgroundColor: {
-        background: "#F3EDDD", // #FFF9F4 or #F3EDDD
+        background: "#FFF9F4", // #FFF9F4 or #F3EDDD
         customOrange: "#F89052",
         customGreen: "#80B565",
         customDarkGreen: "#1A4841",
@@ -32,7 +32,7 @@ const config: Config = {
         customDarkGreen: "#1A4841",
         customPink: "#E88D71",
         customBlue: "#CADAD7",
-        customWhite: "#F3EDDD",
+        customWhite: "#FFF9F4",
       },
     },
   },

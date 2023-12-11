@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     domains: ["drive.google.com"],
   },
-  output: "export",
+  // output: "export",
 };
 
 module.exports = nextConfig;

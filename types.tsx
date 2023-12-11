@@ -7,13 +7,13 @@ export type Store = {
   owner_name: string;
   short_summary: string;
   extended_summary: string;
+  address: string;
   location: string;
   website: string;
   phone_number: string;
   email: string;
   facebook: string;
   instagram: string;
-  twitter: string;
   prompt_1: string;
   prompt_answer_1: string;
   prompt_2: string;

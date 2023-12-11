@@ -79,18 +79,24 @@ export default function DirectoryBody({
           </h1>
         </div>
         <div className="mb-16">
-          {randomizedBusinesses.map((business) => (
-            <BusinessCard
-              name={business.store_name}
-              image={business.img_main}
-              id={business.store_id}
-              owner={business.owner_name}
-              location={business.location}
-              category={business.store_category}
-              short_summary={business.short_summary}
-              extended_summary={business.extended_summary}
-            />
-          ))}
+          {randomizedBusinesses.length > 0 ? (
+            randomizedBusinesses.map((business) => (
+              <BusinessCard
+                name={business.store_name}
+                image={business.img_main}
+                id={business.store_id}
+                owner={business.owner_name}
+                location={business.location}
+                category={business.store_category}
+                short_summary={business.short_summary}
+                extended_summary={business.extended_summary}
+              />
+            ))
+          ) : (
+            <p className="mt-8">
+              Unable to fetch businesses. Please try again later.
+            </p>
+          )}
         </div>
       </div>
     </div>

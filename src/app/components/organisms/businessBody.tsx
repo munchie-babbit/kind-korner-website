@@ -5,6 +5,15 @@ import { usePathname } from "next/navigation";
 import PromptCard from "../molecules/promptCard";
 import ProductCard from "../molecules/productCard";
 import { ActionButton } from "../atoms/actionButton";
+import SocialLink from "../molecules/socialLink";
+import {
+  EmailIcon,
+  GlobeIcon,
+  FacebookIcon,
+  PhoneIcon,
+  InstagramIcon,
+  PinIcon,
+} from "../atoms/icons";
 import Image from "next/image";
 import Card from "../atoms/card";
 
@@ -33,13 +42,13 @@ export default function BusinessBody({
         className="bg-customBlue w-full object-cover h-96 border-b-[1.5px] border-customDarkGreen"
       />
       <div className="grid md:grid-cols-12 gap-4 mx-8 md:mx-0">
-        <div className="md:col-start-2 md:col-span-3">
+        <div className="md:col-start-2 md:col-span-4">
           <Image
             src={business.img_profile}
             alt="Business profile"
             width={200}
             height={200}
-            className=" w-52 h-52 bg-customDarkGreen rounded-full object-cover -mt-28 border-[1.5px] border-customDarkGreen z-10"
+            className=" w-80 h-80 bg-customDarkGreen rounded-full object-cover -mt-28 border-[1.5px] border-customDarkGreen z-10"
           />
           <div className="mt-4">
             <Card>
@@ -50,8 +59,14 @@ export default function BusinessBody({
               <div className="border-t border-customDarkGreen my-2"></div>
               <div className="flex flex-row gap-2">
                 <p>
-                  Located in {business.location} in the area of{" "}
-                  {business.store_category}.{" "}
+                  {business.address
+                    ? "Located at " + business.address
+                    : "Located in " + business.location}
+                  .{" "}
+                  {business.store_name +
+                    " falls under the category of " +
+                    business.store_category.toLowerCase()}
+                  .{" "}
                   {business.store_start_year
                     ? "Started in " + business.store_start_year + "."
                     : null}
@@ -59,54 +74,33 @@ export default function BusinessBody({
               </div>
 
               <div className="border-t border-customDarkGreen my-2"></div>
-              {business.website ? (
-                <p>
-                  <a target="_blank" href={business.website}>
-                    Website
-                  </a>
-                </p>
-              ) : null}
-              {business.email ? (
-                <p>
-                  <a target="_blank" href={"mailto:" + business.email}>
-                    Email
-                  </a>
-                </p>
-              ) : null}
-              {business.phone_number ? (
-                <p>
-                  <a target="_blank" href={business.phone_number}>
-                    Phone number
-                  </a>
-                </p>
-              ) : null}
-              {business.facebook ? (
-                <p>
-                  <a target="_blank" href={business.facebook}>
-                    Facebook
-                  </a>
-                </p>
-              ) : null}
-              {business.instagram ? (
-                <p>
-                  <a target="_blank" href={business.instagram}>
-                    Instagram
-                  </a>
-                </p>
-              ) : null}
-              {business.twitter ? (
-                <p>
-                  <a target="_blank" href={business.twitter}>
-                    Twitter
-                  </a>
-                </p>
-              ) : null}
+              <SocialLink link={business.website} icon={<GlobeIcon />} />
+              <SocialLink
+                link={business.email}
+                isLink={false}
+                icon={<EmailIcon />}
+              />
+              <SocialLink
+                isLink={false}
+                link={business.phone_number}
+                icon={<PhoneIcon />}
+              />
+              <SocialLink
+                link={business.facebook}
+                icon={<FacebookIcon />}
+                alternativeText="Facebook"
+              />
+              <SocialLink
+                link={business.instagram}
+                icon={<InstagramIcon />}
+                alternativeText="Instagram"
+              />
             </Card>
           </div>
         </div>
 
         {business.short_summary && business.extended_summary ? (
-          <div className="md:col-start-5 md:col-span-7 sm:col-span-full md:-mt-28">
+          <div className="md:col-start-6 md:col-span-6 sm:col-span-full md:-mt-28">
             <Card>
               <div className="font-bold pb-2 text-2xl">
                 {business.short_summary}
@@ -126,7 +120,7 @@ export default function BusinessBody({
             </Card>
           </div>
         ) : (
-          <div className="md:col-start-5 md:col-span-7 sm:col-span-full md:mt-28">
+          <div className="md:col-start-6 md:col-span-6 sm:col-span-full md:mt-28">
             <Card>
               <p>
                 Unable to load business details. Please return back to all

@@ -57,15 +57,19 @@ export async function getBusinessCategories() {
   //Instance of the Sheets API
   //@ts-ignore
   const sheets = google.sheets({ version: "v4", auth: authClient });
-  const getRows = await sheets.spreadsheets.values.get({
-    spreadsheetId: "1uSHVMfRfU0dL8kdaqj4WsxSFdCAo5sTtXbHp1qeSNwA",
-    range: "site_data!A2:A",
-  });
-  const business_categories: string[] = getRows.data.values
-    ? getRows.data.values.flat()
-    : [];
+  try {
+    const getRows = await sheets.spreadsheets.values.get({
+      spreadsheetId: "1uSHVMfRfU0dL8kdaqj4WsxSFdCAo5sTtXbHp1qeSNwA",
+      range: "site_data!A2:A",
+    });
+    const business_categories: string[] = getRows.data.values
+      ? getRows.data.values.flat()
+      : [];
 
-  return business_categories;
+    return business_categories;
+  } catch {
+    return [];
+  }
 }
 
 export async function getNeighbourhoods() {
@@ -95,12 +99,16 @@ export async function getNeighbourhoods() {
   // Instance of the Sheets API
   // @ts-ignore
   const sheets = google.sheets({ version: "v4", auth: authClient });
-  const getRows = await sheets.spreadsheets.values.get({
-    spreadsheetId: "1uSHVMfRfU0dL8kdaqj4WsxSFdCAo5sTtXbHp1qeSNwA",
-    range: "site_data!B2:B",
-  });
-  const toronto_neighbourhoods: string[] = getRows.data.values
-    ? getRows.data.values.flat()
-    : [];
-  return toronto_neighbourhoods;
+  try {
+    const getRows = await sheets.spreadsheets.values.get({
+      spreadsheetId: "1uSHVMfRfU0dL8kdaqj4WsxSFdCAo5sTtXbHp1qeSNwA",
+      range: "site_data!B2:B",
+    });
+    const toronto_neighbourhoods: string[] = getRows.data.values
+      ? getRows.data.values.flat()
+      : [];
+    return toronto_neighbourhoods;
+  } catch {
+    return [];
+  }
 }
